@@ -2,6 +2,8 @@ import React,{useState, useEffect} from "react";
 import "./App.css";
 import axios from 'axios'
 import {API_WITH_KEY} from './constants'
+import styled from 'styled-components'
+import StyledContainer from './components/Styles'
 
 
 function App() {
@@ -21,22 +23,24 @@ function App() {
     },[])
  
   return (
-    <div className="App">
+    <StyledContainer>
       <header>
-        <h1>Nasa Picture of the day: {image.date}</h1>
+        <h1>Nasa Picture of the Day: {image.date}</h1>
       </header>
       <main>
         <img src={image.url} alt="nasa of the day" />
         <button onClick={e => {toggleInfoHandler(e)}}>
           {
-            toggleInfo ? 'collapse':'expand'
+            toggleInfo ? 'Less Info':'More Info'
           }
         </button>
         {
           toggleInfo && (
             <>
-              <h2>{image.title}</h2>
-              <p>{image.explanation}</p>
+              <div className='button-info'>
+                <h2>{image.title}</h2>
+                <p>{image.explanation}</p>
+              </div>
             </>
           )
         }
@@ -44,7 +48,7 @@ function App() {
       
      
     
-    </div>
+    </StyledContainer>
     
   );
 }
