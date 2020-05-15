@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledContainer = styled.div`
-    width: 800px;
+    
     background: black;
     color: white;
     padding: 4%;
